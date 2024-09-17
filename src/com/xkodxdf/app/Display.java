@@ -1,7 +1,7 @@
 package com.xkodxdf.app;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Display {
 
@@ -63,7 +63,7 @@ public class Display {
                     "    ========="};
 
 
-    public void printGameState(int currentAttempt, String[] maskedWord, ArrayList<String> usedLetters) {
+    public void printGameState(int currentAttempt, String[] maskedWord, List<String> usedLetters) {
         int maxAttempts = 6;
         printHangman(currentAttempt);
         System.out.println("Осталось " + (maxAttempts - currentAttempt) + " попыток");
@@ -91,7 +91,7 @@ public class Display {
                 "Если вы угадали букву или случайно ввели букву, которую уже вводили ранее - попытка не тратится.\n");
     }
 
-    public void printEndGameMessage(int attempts, String secretWord, String[] maskedWord, ArrayList<String> usedLetters) {
+    public void printEndGameMessage(int attempts, String secretWord, String[] maskedWord, List<String> usedLetters) {
         printGameState(attempts, maskedWord, usedLetters);
         String word = Arrays.toString(maskedWord)
                 .replace("[", "")
@@ -103,7 +103,7 @@ public class Display {
             System.out.println("\nИгра окончена. Вы победили, угадав слово - " + word.toUpperCase() + ".");
             System.out.println("_".repeat(50) + "\n");
         } else {
-            System.out.println("\n11Игра окончена. Вы проиграли!");
+            System.out.println("\nИгра окончена. Вы проиграли!");
             System.out.println("Было загадано слово: " + secretWord.toUpperCase() + ".");
             System.out.println("_".repeat(50) + "\n");
         }
