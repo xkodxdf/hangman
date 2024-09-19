@@ -1,9 +1,6 @@
 package com.xkodxdf.app;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
@@ -46,11 +43,15 @@ public class Game {
     }
 
     protected String getLetterFromUser() {
-        String input;
+        String input = "";
         char letter;
         do {
             System.out.print("Введите букву: ");
-            input = scn.nextLine();
+            try {
+                input = scn.nextLine();
+            } catch (NoSuchElementException e) {
+                System.exit(0);
+            }
             if (input.length() != 1) {
                 System.out.print("Неверный ввод. ");
                 continue;
@@ -101,9 +102,13 @@ public class Game {
     protected boolean continueGame() {
         System.out.println("Начать новую игру - введите 1\n" +
                 "Выйти - введите 2");
-        String answer;
+        String answer = "";
         do {
-            answer = scn.nextLine();
+            try {
+                answer = scn.nextLine();
+            } catch (NoSuchElementException e) {
+                System.exit(0);
+            }
             if (answer.equals("1")) {
                 return true;
             }
