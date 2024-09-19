@@ -117,12 +117,7 @@ public class Game {
     }
 
     protected boolean isMaskedWordEqualsSecret(String[] masked, String secret) {
-        String maskedWord = Arrays.toString(masked)
-                .replace("[", "")
-                .replace("]", "")
-                .replace(",", "")
-                .replace(" ", "")
-                .trim();
+        String maskedWord = Utils.arrToString(masked);
 
         return maskedWord.equals(secret);
     }

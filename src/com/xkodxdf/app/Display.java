@@ -1,6 +1,5 @@
 package com.xkodxdf.app;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Display {
@@ -86,12 +85,7 @@ public class Display {
     }
 
     private void printMaskedWord(String[] maskedWord) {
-        String word = Arrays.toString(maskedWord)
-                .replace("[", "")
-                .replace("]", "")
-                .replace(",", "")
-                .replace(" ", "")
-                .trim();
+        String word = Utils.arrToString(maskedWord);
         System.out.println("Загаданное слово: " + word);
     }
 
@@ -103,12 +97,7 @@ public class Display {
 
     protected void printEndGameMessage(int attempts, String secretWord, String[] maskedWord, List<String> usedLetters) {
         printGameState(attempts, maskedWord, usedLetters);
-        String word = Arrays.toString(maskedWord)
-                .replace("[", "")
-                .replace("]", "")
-                .replace(",", "")
-                .replace(" ", "")
-                .trim();
+        String word = Utils.arrToString(maskedWord);
         if (word.equals(secretWord)) {
             System.out.println("\nИгра окончена. Вы победили, угадав слово - " + word.toUpperCase() + ".");
             System.out.println("_".repeat(50) + "\n");
