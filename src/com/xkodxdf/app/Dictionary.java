@@ -20,7 +20,11 @@ public class Dictionary {
     protected void setWordList() throws IOException {
         final String FILE_PATH = "./src/resources/data.txt";
         Stream<String> fileStream = Files.lines(Paths.get(FILE_PATH));
-        fileStream.forEach(wordList::add);
+        fileStream.forEach(i -> {
+            if (!i.isEmpty() && !i.trim().contains(" ")) {
+                wordList.add(i.trim());
+            }
+        });
         fileStream.close();
     }
 }
