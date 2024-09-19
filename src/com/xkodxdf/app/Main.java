@@ -25,6 +25,7 @@ public class Main {
         while (game.continueGame()) {
             String letter;
             String secretWord = null;
+            boolean wordGuessed = false;
             try {
                 secretWord = game.chooseSecretWord(wordList);
             } catch (IllegalArgumentException e) {
@@ -35,18 +36,19 @@ public class Main {
             display.printStartMessage();
 
             while (true) {
-                display.printGameState(game.getAttempts(), maskedWord, game.getUsedLetters());
+                display.printGameState(game.getAttempts(), game.getGuessedInARow(), maskedWord, game.getUsedLetters());
                 letter = game.getLetterFromUser();
                 game.changeAttemptCounter(secretWord, letter, game.getUsedLetters());
                 game.saveUsedLetters(letter);
                 maskedWord = game.revealGuessedLetter(maskedWord, secretWord, letter);
-                if (game.checkWinLose(maskedWord, secretWord, game.getAttempts())) {
-                    display.printEndGameMessage(game.getAttempts(), secretWord, maskedWord, game.getUsedLetters());
+                wordGuessed = game.isMaskedWordEqualsSecret(maskedWord, secretWord);
+                if (game.checkWinLose(wordGuessed, game.getAttempts())) {
+                    game.changeGuessedInARowCounter(wordGuessed);
+                    display.printEndGameMessage(game.getAttempts(), game.getGuessedInARow(), secretWord, maskedWord, game.getUsedLetters());
                     break;
                 }
             }
 
-            boolean wordGuessed = game.isMaskedWordEqualsSecret(maskedWord, secretWord);
             if (wordGuessed && wordList.size() == 1) {
                 wordList = new ArrayList<>(dictionary.getWordList());
             } else if (wordGuessed) {

@@ -62,7 +62,7 @@ public class Display {
                     "    ========="};
 
 
-    protected void printGameState(int currentAttempt, String[] maskedWord, List<String> usedLetters) {
+    protected void printGameState(int currentAttempt, int guessedInARow, String[] maskedWord, List<String> usedLetters) {
         int maxAttempts = 6;
         int remainedAttempts = maxAttempts - currentAttempt;
         String attemptWord = " попыток";
@@ -75,7 +75,8 @@ public class Display {
         }
 
         printHangman(currentAttempt);
-        System.out.println("Осталось " + remainedAttempts + attemptWord);
+        System.out.print("Осталось " + remainedAttempts + attemptWord);
+        System.out.println("  |  Угадано слов подряд: " + guessedInARow);
         System.out.println("Буквы которые вы уже вводили: " + usedLetters);
         printMaskedWord(maskedWord);
     }
@@ -90,13 +91,14 @@ public class Display {
     }
 
     protected void printStartMessage() {
-        System.out.println("Игра Виселица\n" +
-                "Цель - угадать загаданное слово по буквам. Даётся 6 попыток.\n" +
-                "Если вы угадали или случайно ввели букву, которую уже вводили ранее - попытка не тратится.\n");
+        System.out.println("Игра Виселица\n"
+                + "Цель - угадать загаданное слово по буквам. Даётся 6 попыток.\n"
+                + "В словах длиной больше 7 букв - одна из букв открыта с самого начала."
+                + "Если вы угадали или случайно ввели букву, которую уже вводили ранее - попытка не тратится.\n");
     }
 
-    protected void printEndGameMessage(int attempts, String secretWord, String[] maskedWord, List<String> usedLetters) {
-        printGameState(attempts, maskedWord, usedLetters);
+    protected void printEndGameMessage(int attempts, int guessedInARow, String secretWord, String[] maskedWord, List<String> usedLetters) {
+        printGameState(attempts, guessedInARow, maskedWord, usedLetters);
         String word = Utils.arrToString(maskedWord);
         if (word.equals(secretWord)) {
             System.out.println("\nИгра окончена. Вы победили, угадав слово - " + word.toUpperCase() + ".");

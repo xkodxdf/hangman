@@ -6,18 +6,28 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Game {
     private final Scanner scn;
     private int attempts;
+    private int guessedInARow;
     private final List<String> usedLetters;
 
 
     public Game(Scanner scn) {
         this.scn = scn;
         attempts = 0;
+        guessedInARow = 0;
         usedLetters = new ArrayList<>();
     }
 
 
-    protected int getAttempts() {
+    public int getAttempts() {
         return attempts;
+    }
+
+    public int getGuessedInARow() {
+        return guessedInARow;
+    }
+
+    public void setGuessedInARow(int guessedInARow) {
+        this.guessedInARow = guessedInARow;
     }
 
     protected List<String> getUsedLetters() {
@@ -89,6 +99,10 @@ public class Game {
         attempts++;
     }
 
+    protected void changeGuessedInARowCounter(boolean isGuessed) {
+        guessedInARow = isGuessed ? (guessedInARow + 1) : 0;
+    }
+
     protected String[] revealGuessedLetter(String[] maskedWord, String word, String letter) {
         for (int i = 0; i < word.length(); i++) {
             if (String.valueOf(word.charAt(i)).equalsIgnoreCase(letter)) {
@@ -99,8 +113,8 @@ public class Game {
         return maskedWord;
     }
 
-    protected boolean checkWinLose(String[] maskedWord, String secretWord, int attempts) {
-        return (isMaskedWordEqualsSecret(maskedWord, secretWord)) || (attempts >= 6);
+    protected boolean checkWinLose(boolean isWordGuessed, int attempts) {
+        return (isWordGuessed || (attempts >= 6));
     }
 
     protected boolean continueGame() {
