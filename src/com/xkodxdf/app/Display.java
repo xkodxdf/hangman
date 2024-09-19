@@ -65,8 +65,18 @@ public class Display {
 
     public void printGameState(int currentAttempt, String[] maskedWord, List<String> usedLetters) {
         int maxAttempts = 6;
+        int remainedAttempts = maxAttempts - currentAttempt;
+        String attemptWord = " попыток";
+
+        if (remainedAttempts > 1 && remainedAttempts < 5) {
+            attemptWord = " попытки";
+        }
+        if (remainedAttempts == 1) {
+            attemptWord = " попытка";
+        }
+
         printHangman(currentAttempt);
-        System.out.println("Осталось " + (maxAttempts - currentAttempt) + " попыток");
+        System.out.println("Осталось " + remainedAttempts + attemptWord);
         System.out.println("Буквы которые вы уже вводили: " + usedLetters);
         printMaskedWord(maskedWord);
     }
@@ -87,8 +97,8 @@ public class Display {
 
     public void printStartMessage() {
         System.out.println("Игра Виселица\n" +
-                "Цель - угадать загаданное слово. Даётся 6 попыток.\n" +
-                "Если вы угадали букву или случайно ввели букву, которую уже вводили ранее - попытка не тратится.\n");
+                "Цель - угадать загаданное слово по буквам. Даётся 6 попыток.\n" +
+                "Если вы угадали или случайно ввели букву, которую уже вводили ранее - попытка не тратится.\n");
     }
 
     public void printEndGameMessage(int attempts, String secretWord, String[] maskedWord, List<String> usedLetters) {
