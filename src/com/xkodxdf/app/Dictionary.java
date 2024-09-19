@@ -17,7 +17,7 @@ public class Dictionary {
     }
 
 
-    void setWordList() throws IOException {
+    protected void setWordList() throws IOException {
         final String FILE_PATH = "./src/resources/data.txt";
         Stream<String> fileStream = Files.lines(Paths.get(FILE_PATH));
         fileStream.forEach(wordList::add);

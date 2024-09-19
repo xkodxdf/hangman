@@ -63,7 +63,7 @@ public class Display {
                     "    ========="};
 
 
-    public void printGameState(int currentAttempt, String[] maskedWord, List<String> usedLetters) {
+    protected void printGameState(int currentAttempt, String[] maskedWord, List<String> usedLetters) {
         int maxAttempts = 6;
         int remainedAttempts = maxAttempts - currentAttempt;
         String attemptWord = " попыток";
@@ -95,13 +95,13 @@ public class Display {
         System.out.println("Загаданное слово: " + word);
     }
 
-    public void printStartMessage() {
+    protected void printStartMessage() {
         System.out.println("Игра Виселица\n" +
                 "Цель - угадать загаданное слово по буквам. Даётся 6 попыток.\n" +
                 "Если вы угадали или случайно ввели букву, которую уже вводили ранее - попытка не тратится.\n");
     }
 
-    public void printEndGameMessage(int attempts, String secretWord, String[] maskedWord, List<String> usedLetters) {
+    protected void printEndGameMessage(int attempts, String secretWord, String[] maskedWord, List<String> usedLetters) {
         printGameState(attempts, maskedWord, usedLetters);
         String word = Arrays.toString(maskedWord)
                 .replace("[", "")
