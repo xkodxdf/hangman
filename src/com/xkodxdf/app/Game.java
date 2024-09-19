@@ -38,6 +38,10 @@ public class Game {
     protected String[] getMaskedWord(String word) {
         String[] arr = new String[word.length()];
         Arrays.fill(arr, "*");
+        if (arr.length > 7) {
+            int randomCell = ThreadLocalRandom.current().nextInt(arr.length);
+            arr[randomCell] = String.valueOf(word.charAt(randomCell));
+        }
 
         return arr;
     }
