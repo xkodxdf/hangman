@@ -26,10 +26,6 @@ public class Game {
         return guessedInARow;
     }
 
-    public void setGuessedInARow(int guessedInARow) {
-        this.guessedInARow = guessedInARow;
-    }
-
     protected List<String> getUsedLetters() {
         return usedLetters;
     }
