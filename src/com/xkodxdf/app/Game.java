@@ -53,15 +53,11 @@ public class Game {
     }
 
     protected String getLetterFromUser() {
-        String input = "";
+        String input;
         char letter;
         do {
             System.out.print("Введите букву: ");
-            try {
-                input = scn.nextLine();
-            } catch (NoSuchElementException e) {
-                System.exit(0);
-            }
+            input = Utils.getInput(scn);
             if (input.length() != 1) {
                 System.out.print("Неверный ввод. ");
                 continue;
@@ -114,24 +110,20 @@ public class Game {
     }
 
     protected boolean continueGame() {
-        System.out.println("Начать новую игру - введите 1\n" +
-                "Выйти - введите 2");
-        String answer = "";
+        System.out.println("Начать новую игру - введите 1\n"
+                + "Выйти - введите 2");
+        String answer;
         do {
-            try {
-                answer = scn.nextLine();
-            } catch (NoSuchElementException e) {
-                System.exit(0);
-            }
+            answer = Utils.getInput(scn);
             if (answer.equals("1")) {
                 return true;
             }
             if (answer.equals("2")) {
                 return false;
             }
-            System.out.println("Некорректный ввод.\n" +
-                    "Введите 1 - для начала новой игры\n" +
-                    "Введите 2 - для завершения игры");
+            System.out.println("Некорректный ввод.\n"
+                    + "Введите 1 - для начала новой игры\n"
+                    + "Введите 2 - для завершения игры");
         } while (true);
     }
 

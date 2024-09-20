@@ -1,6 +1,8 @@
 package com.xkodxdf.app;
 
 import java.util.Arrays;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
 
 public class Utils {
 
@@ -11,5 +13,16 @@ public class Utils {
                 .replace(",", "")
                 .replace(" ", "")
                 .trim();
+    }
+
+    public static String getInput(Scanner scn) {
+        String input = "";
+        try {
+            input = scn.nextLine();
+        } catch (NoSuchElementException e) {
+            System.exit(0);
+        }
+
+        return input;
     }
 }

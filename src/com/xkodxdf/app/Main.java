@@ -25,7 +25,7 @@ public class Main {
         while (game.continueGame()) {
             String letter;
             String secretWord = null;
-            boolean wordGuessed = false;
+            boolean wordGuessed;
             try {
                 secretWord = game.chooseSecretWord(wordList);
             } catch (IllegalArgumentException e) {
