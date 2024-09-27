@@ -4,109 +4,47 @@ import java.util.List;
 
 public class Display {
 
-    private final String[] hangman = {
-            "    +---+\n" +
-                    "    |   |\n" +
-                    "    |\n" +
-                    "    |\n" +
-                    "    |\n" +
-                    "    |\n" +
-                    "    =========",
-
-            "    +---+\n" +
-                    "    |   |\n" +
-                    "    |   O\n" +
-                    "    |\n" +
-                    "    |\n" +
-                    "    |\n" +
-                    "    =========",
-
-            "    +---+\n" +
-                    "    |   |\n" +
-                    "    |   O\n" +
-                    "    |   |\n" +
-                    "    |\n" +
-                    "    |\n" +
-                    "    =========",
-
-            "    +---+\n" +
-                    "    |   |\n" +
-                    "    |   O\n" +
-                    "    |  /|\n" +
-                    "    |\n" +
-                    "    |\n" +
-                    "    =========",
-
-            "    +---+\n" +
-                    "    |   |\n" +
-                    "    |   O\n" +
-                    "    |  /|\\\n" +
-                    "    |\n" +
-                    "    |\n" +
-                    "    =========",
-
-            "    +---+\n" +
-                    "    |   |\n" +
-                    "    |   O\n" +
-                    "    |  /|\\\n" +
-                    "    |  /\n" +
-                    "    |\n" +
-                    "    =========",
-
-            "    +---+\n" +
-                    "    |   |\n" +
-                    "    |   O\n" +
-                    "    |  /|\\\n" +
-                    "    |  / \\\n" +
-                    "    |\n" +
-                    "    ========="};
-
-
     protected void printGameState(int currentAttempt, int guessedInARow, String[] maskedWord, List<String> usedLetters) {
         int maxAttempts = 6;
         int remainedAttempts = maxAttempts - currentAttempt;
-        String attemptWord = " попыток";
+        String attemptWord = OutputText.ATTEMPT_V1;
 
         if (remainedAttempts > 1 && remainedAttempts < 5) {
-            attemptWord = " попытки";
+            attemptWord = OutputText.ATTEMPT_V2;
         }
         if (remainedAttempts == 1) {
-            attemptWord = " попытка";
+            attemptWord = OutputText.ATTEMPT_V3;
         }
 
         printHangman(currentAttempt);
-        System.out.print("Осталось " + remainedAttempts + attemptWord);
-        System.out.println("  |  Угадано слов подряд: " + guessedInARow);
-        System.out.println("Буквы которые вы уже вводили: " + usedLetters);
+        System.out.print(OutputText.REMAIN + remainedAttempts + attemptWord);
+        System.out.println(OutputText.GUESSED_WORDS_IN_A_ROW + guessedInARow);
+        System.out.println(OutputText.USED_LETTERS + usedLetters);
         printMaskedWord(maskedWord);
     }
 
     private void printHangman(int attempts) {
-        System.out.println(hangman[attempts] + "\n");
+        System.out.println(HangmanImage.values()[attempts]);
     }
 
     private void printMaskedWord(String[] maskedWord) {
         String word = Utils.arrToString(maskedWord);
-        System.out.println("Загаданное слово: " + word);
+        System.out.println(OutputText.HIDDEN_WORD + word);
     }
 
     protected void printStartMessage() {
-        System.out.println("Игра Виселица\n"
-                + "Цель - угадать загаданное слово по буквам. Даётся 6 попыток.\n"
-                + "В словах длиной больше 7 букв - одна из букв открыта с самого начала.\n"
-                + "Если вы угадали или случайно ввели букву, которую уже вводили ранее - попытка не тратится.\n");
+        System.out.println(OutputText.START_GAME_MSG);
     }
 
     protected void printEndGameMessage(int attempts, int guessedInARow, String secretWord, String[] maskedWord, List<String> usedLetters) {
         printGameState(attempts, guessedInARow, maskedWord, usedLetters);
         String word = Utils.arrToString(maskedWord);
         if (word.equals(secretWord)) {
-            System.out.println("\nИгра окончена. Вы победили, угадав слово - " + word.toUpperCase() + ".");
-            System.out.println("_".repeat(50) + "\n");
+            System.out.println(OutputText.END_GAME_WIN_MSG + word.toUpperCase());
+            System.out.println(OutputText.SEPARATOR);
         } else {
-            System.out.println("\nИгра окончена. Вы проиграли!");
-            System.out.println("Было загадано слово: " + secretWord.toUpperCase() + ".");
-            System.out.println("_".repeat(50) + "\n");
+            System.out.println(OutputText.END_GAME_LOSS_MSG + secretWord.toUpperCase());
+            System.out.println(OutputText.SEPARATOR);
         }
     }
 }

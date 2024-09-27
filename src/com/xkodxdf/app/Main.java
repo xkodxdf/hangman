@@ -7,6 +7,15 @@ import java.util.Scanner;
 
 public class Main {
 
+    //TODO
+    // - рисунки висельника запихнуть в енам
+    // - весь выводимый текст запихнуть в енам
+    // - словарь со значениями в мапе
+    // - проверить классы и методы на возможность разбиения
+    // - проверить нэйминг
+    // - регулярные выражения
+    // - тесты
+
     private static final Scanner scn = new Scanner(System.in);
     private static final Display display = new Display();
     private static final Dictionary dictionary = new Dictionary();

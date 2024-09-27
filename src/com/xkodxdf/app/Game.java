@@ -42,8 +42,9 @@ public class Game {
     }
 
     protected String[] getMaskedWord(String word) {
+        String mask_symbol = "*";
         String[] arr = new String[word.length()];
-        Arrays.fill(arr, "*");
+        Arrays.fill(arr, mask_symbol);
         if (arr.length > 7) {
             int randomCell = ThreadLocalRandom.current().nextInt(arr.length);
             arr[randomCell] = String.valueOf(word.charAt(randomCell));
@@ -56,10 +57,10 @@ public class Game {
         String input;
         char letter;
         do {
-            System.out.print("Введите букву: ");
+            System.out.print(OutputText.INPUT_LETTER);
             input = Utils.getInput(scn);
             if (input.length() != 1) {
-                System.out.print("Неверный ввод. ");
+                System.out.print(OutputText.INVALID_LETTER_INPUT);
                 continue;
             }
             letter = input.charAt(0);
@@ -68,7 +69,7 @@ public class Game {
                     || (letter == 'ё' || letter == 'Ё')) {
                 break;
             }
-            System.out.print("Неверный ввод. ");
+            System.out.print(OutputText.INVALID_LETTER_INPUT);
         } while (true);
 
         return String.valueOf(letter);
@@ -110,20 +111,19 @@ public class Game {
     }
 
     protected boolean continueGame() {
-        System.out.println("Начать новую игру - введите 1\n"
-                + "Выйти - введите 2");
+        System.out.println(OutputText.CONTINUE_GAME_CHOICE);
         String answer;
+        String newGame = "1";
+        String endGame = "2";
         do {
             answer = Utils.getInput(scn);
-            if (answer.equals("1")) {
+            if (answer.equals(newGame)) {
                 return true;
             }
-            if (answer.equals("2")) {
+            if (answer.equals(endGame)) {
                 return false;
             }
-            System.out.println("Некорректный ввод.\n"
-                    + "Введите 1 - для начала новой игры\n"
-                    + "Введите 2 - для завершения игры");
+            System.out.println(OutputText.INVALID_NUM_INPUT);
         } while (true);
     }
 
