@@ -1,4 +1,7 @@
-package com.xkodxdf.app;
+package com.xkodxdf.app.game;
+
+import com.xkodxdf.app.dictionary.Dictionary;
+import com.xkodxdf.app.display.Display;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,15 +9,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-
-    //TODO
-    // - рисунки висельника запихнуть в енам
-    // - весь выводимый текст запихнуть в енам
-    // - словарь со значениями в мапе
-    // - проверить классы и методы на возможность разбиения
-    // - проверить нэйминг
-    // - регулярные выражения
-    // - тесты
 
     private static final Scanner scn = new Scanner(System.in);
     private static final Display display = new Display();

@@ -1,4 +1,4 @@
-package com.xkodxdf.app;
+package com.xkodxdf.app.util;
 
 import java.util.Arrays;
 import java.util.NoSuchElementException;

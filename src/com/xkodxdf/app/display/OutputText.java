@@ -1,4 +1,4 @@
-package com.xkodxdf.app;
+package com.xkodxdf.app.display;
 
 public abstract class OutputText {
     public static final String START_GAME_MSG = "Игра Виселица\n"

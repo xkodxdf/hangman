@@ -1,4 +1,4 @@
-package com.xkodxdf.app;
+package com.xkodxdf.app.display;
 
 public enum HangmanImage {
     IMAGE_1("    +---+\n" +

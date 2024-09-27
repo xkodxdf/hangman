@@ -1,10 +1,12 @@
-package com.xkodxdf.app;
+package com.xkodxdf.app.display;
+
+import com.xkodxdf.app.util.Utils;
 
 import java.util.List;
 
 public class Display {
 
-    protected void printGameState(int currentAttempt, int guessedInARow, String[] maskedWord, List<String> usedLetters) {
+    public void printGameState(int currentAttempt, int guessedInARow, String[] maskedWord, List<String> usedLetters) {
         int maxAttempts = 6;
         int remainedAttempts = maxAttempts - currentAttempt;
         String attemptWord = OutputText.ATTEMPT_V1;
@@ -32,11 +34,11 @@ public class Display {
         System.out.println(OutputText.HIDDEN_WORD + word);
     }
 
-    protected void printStartMessage() {
+    public void printStartMessage() {
         System.out.println(OutputText.START_GAME_MSG);
     }
 
-    protected void printEndGameMessage(int attempts, int guessedInARow, String secretWord, String[] maskedWord, List<String> usedLetters) {
+    public void printEndGameMessage(int attempts, int guessedInARow, String secretWord, String[] maskedWord, List<String> usedLetters) {
         printGameState(attempts, guessedInARow, maskedWord, usedLetters);
         String word = Utils.arrToString(maskedWord);
         if (word.equals(secretWord)) {

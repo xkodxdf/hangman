@@ -1,4 +1,7 @@
-package com.xkodxdf.app;
+package com.xkodxdf.app.game;
+
+import com.xkodxdf.app.display.OutputText;
+import com.xkodxdf.app.util.Utils;
 
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;

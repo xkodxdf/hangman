@@ -1,4 +1,4 @@
-package com.xkodxdf.app;
+package com.xkodxdf.app.dictionary;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -17,7 +17,7 @@ public class Dictionary {
     }
 
 
-    protected void setWordList() throws IOException {
+    public void setWordList() throws IOException {
         final String FILE_PATH = "./src/resources/data.txt";
         Stream<String> fileStream = Files.lines(Paths.get(FILE_PATH));
         fileStream.forEach(i -> {
