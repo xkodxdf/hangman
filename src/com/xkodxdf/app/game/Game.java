@@ -57,17 +57,17 @@ public class Game {
     }
 
     protected String getLetterFromUser() {
-        String input;
+        String letter;
         do {
             System.out.print(OutputText.INPUT_LETTER);
-            input = Utils.getInput(scn);
-            if (Utils.validateRusLetterInput(input)) {
+            letter = Utils.getInput(scn);
+            if (Utils.validateRusLetterInput(letter)) {
                 break;
             }
             System.out.print(OutputText.INVALID_LETTER_INPUT);
         } while (true);
 
-        return input.toLowerCase();
+        return letter.toLowerCase();
     }
 
     protected void saveUsedLetters(String letter) {
