@@ -36,5 +36,9 @@ public abstract class OutputText {
             + "Введите 1 - для начала новой игры\n"
             + "Введите 2 - для завершения игры";
 
+    public static final String FILE_LOCATION_PROBLEM = "Проверьте расположение файла \"src/resources/data.txt\"";
+
+    public static final String FILE_CONTENT_PROBLEM = "Файл \"src/resources/data.txt\" должен содержать слова. По одному слову на каждой строке.";
+
     public static final String SEPARATOR = "=".repeat(60);
 }

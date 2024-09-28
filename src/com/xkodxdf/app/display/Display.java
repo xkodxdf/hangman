@@ -27,11 +27,11 @@ public class Display {
         System.out.println(OutputText.HIDDEN_WORD + word);
     }
 
-    public void printStartMessage() {
+    public void printStartMsg() {
         System.out.println(OutputText.START_GAME_MSG);
     }
 
-    public void printEndGameMessage(int attempts, int guessedInARow, String secretWord, String[] maskedWord, List<String> usedLetters) {
+    public void printEndGameMsg(int attempts, int guessedInARow, String secretWord, String[] maskedWord, List<String> usedLetters) {
         printGameState(attempts, guessedInARow, maskedWord, usedLetters);
         String word = Utils.arrToString(maskedWord);
         if (word.equals(secretWord)) {
@@ -41,5 +41,13 @@ public class Display {
             System.out.println(OutputText.END_GAME_LOSS_MSG + secretWord.toUpperCase());
             System.out.println(OutputText.SEPARATOR);
         }
+    }
+
+    public void printFileLocationMsg() {
+        System.out.println(OutputText.FILE_LOCATION_PROBLEM);
+    }
+
+    public void printFileContentProblemMsg() {
+        System.out.println(OutputText.FILE_CONTENT_PROBLEM);
     }
 }

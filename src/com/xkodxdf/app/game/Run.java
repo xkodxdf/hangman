@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class Run {
 
     private static final Scanner scn = new Scanner(System.in);
     private static final Display display = new Display();
@@ -19,7 +19,7 @@ public class Main {
         try {
             dictionary.setWordList();
         } catch (IOException e) {
-            System.out.println("Проверьте расположение файла \"src/resources/data.txt\"");
+            display.printFileLocationMsg();
             System.exit(0);
         }
 
@@ -32,11 +32,11 @@ public class Main {
             try {
                 secretWord = game.chooseSecretWord(wordList);
             } catch (IllegalArgumentException e) {
-                System.out.println("Файл \"src/resources/data.txt\" должен содержать слова. По одному слову на каждой строке.");
+                display.printFileContentProblemMsg();
                 System.exit(0);
             }
             String[] maskedWord = game.getMaskedWord(secretWord);
-            display.printStartMessage();
+            display.printStartMsg();
 
             while (true) {
                 display.printGameState(game.getAttempts(), game.getGuessedInARow(), maskedWord, game.getUsedLetters());
@@ -47,7 +47,7 @@ public class Main {
                 wordGuessed = game.isMaskedWordEqualsSecret(maskedWord, secretWord);
                 if (game.checkWinLoss(wordGuessed, game.getAttempts())) {
                     game.changeGuessedInARowCounter(wordGuessed);
-                    display.printEndGameMessage(game.getAttempts(), game.getGuessedInARow(), secretWord, maskedWord, game.getUsedLetters());
+                    display.printEndGameMsg(game.getAttempts(), game.getGuessedInARow(), secretWord, maskedWord, game.getUsedLetters());
                     break;
                 }
             }
