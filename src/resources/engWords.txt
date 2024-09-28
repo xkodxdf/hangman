@@ -1,0 +1,42 @@
+Author:a person who writes books or other written works.
+Market:a regular gathering of people for the purchase and sale of provisions.
+Engine:a machine designed to convert energy into useful mechanical motion.
+Season:one of the four periods of the year (spring, summer, autumn, winter).
+Journey:the act of traveling from one place to another.
+Hospital:an institution providing medical and surgical treatment and care to sick or injured people.
+Teacher:a person who teaches, especially in a school.
+Conflict:a serious disagreement or argument, typically a protracted one.
+Research:the systematic investigation into and study of materials and sources to establish facts.
+Friend:a person whom one knows and has a bond of mutual affection.
+Nature:the innate or essential qualities of a person or thing; the physical world collectively.
+Mission:an important assignment carried out for political, religious, or commercial purposes.
+Success:the accomplishment of an aim or purpose.
+Community:a group of people living in the same place or having a common characteristic.
+Computer:an electronic device for storing and processing data.
+Language:a system of communication used by a particular community or country.
+Festival:a day or period of celebration, typically for religious reasons.
+Solution:a means of solving a problem or dealing with a difficult situation.
+University:an institution of higher education and research.
+Identity:the fact of being who or what a person or thing is.
+Atmosphere:the envelope of gases surrounding the earth or another planet.
+Climate:the weather conditions prevailing in an area over a long period.
+Society:a community of people living together and sharing customs.
+Experience:practical contact with and observation of facts or events.
+Quality:the standard of something as measured against other things of a similar kind.
+Journey:the act of traveling from one place to another.
+Strategy:a plan of action designed to achieve a particular goal.
+Horizon:the line where the earth's surface and the sky appear to meet.
+Influence:the capacity to have an effect on the character, development, or behavior of someone or something.
+Privacy:the state of being free from public attention or disturbance.
+Performance:the act of performing a task or function.
+Transcript:a written or printed version of material presented in a different medium.
+Convention:a way in which something is usually done, especially within a particular area or activity.
+Tension:the state of being stretched tight; mental or emotional strain.
+Isolation:the state of being separated from others; solitude.
+Enhancement:an improvement or augmentation of quality, value, or extent.
+Perspective:a particular attitude toward or way of regarding something.
+Tradition:the transmission of customs or beliefs from generation to generation.
+Disaster:a sudden event causing great damage or loss of life.
+Opportunity:a set of circumstances that makes it possible to do something.
+Resource:a source of supply, support, or aid.
+Sustainability:the ability to be maintained at a certain rate or level; avoiding the depletion of natural resources.
