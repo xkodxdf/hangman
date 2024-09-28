@@ -46,11 +46,11 @@ public class Game {
 
     protected String[] getMaskedWord(String word) {
         String mask_symbol = "*";
+        int lengthForHint = 8;
         String[] arr = new String[word.length()];
         Arrays.fill(arr, mask_symbol);
-        if (arr.length > 7) {
-            int randomCell = ThreadLocalRandom.current().nextInt(arr.length);
-            arr[randomCell] = String.valueOf(word.charAt(randomCell));
+        if (word.length() >= lengthForHint) {
+            Utils.openRandomLetter(word, arr);
         }
 
         return arr;
@@ -102,7 +102,8 @@ public class Game {
     }
 
     protected boolean checkWinLoss(boolean isWordGuessed, int attempts) {
-        return (isWordGuessed || (attempts >= 6));
+        int maxAttempts = 6;
+        return (isWordGuessed || (attempts >= maxAttempts));
     }
 
     protected boolean continueGame() {

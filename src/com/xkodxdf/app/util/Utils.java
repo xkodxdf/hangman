@@ -5,6 +5,7 @@ import com.xkodxdf.app.display.OutputText;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -59,5 +60,10 @@ public class Utils {
         Matcher matcher = alphabet.matcher(letter);
 
         return matcher.find();
+    }
+
+    public static void openRandomLetter(String word, String[] arr) {
+        int randomCell = ThreadLocalRandom.current().nextInt(arr.length);
+        arr[randomCell] = String.valueOf(word.charAt(randomCell));
     }
 }
