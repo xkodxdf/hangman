@@ -5,6 +5,8 @@ import com.xkodxdf.app.display.OutputText;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Utils {
 
@@ -37,5 +39,25 @@ public class Utils {
         }
 
         return OutputText.ATTEMPT_V1;
+    }
+
+    public static boolean validateRusLetterInput(String letter) {
+        if (letter.length() != 1) {
+            return false;
+        }
+        Pattern alphabet = Pattern.compile("[а-яёА-ЯЁ]");
+        Matcher matcher = alphabet.matcher(letter);
+
+        return matcher.find();
+    }
+
+    public static boolean validateEngLetterInput(String letter) {
+        if (letter.length() != 1) {
+            return false;
+        }
+        Pattern alphabet = Pattern.compile("[a-zA-Z]");
+        Matcher matcher = alphabet.matcher(letter);
+
+        return matcher.find();
     }
 }

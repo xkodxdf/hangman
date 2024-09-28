@@ -58,24 +58,16 @@ public class Game {
 
     protected String getLetterFromUser() {
         String input;
-        char letter;
         do {
             System.out.print(OutputText.INPUT_LETTER);
             input = Utils.getInput(scn);
-            if (input.length() != 1) {
-                System.out.print(OutputText.INVALID_LETTER_INPUT);
-                continue;
-            }
-            letter = input.charAt(0);
-            if ((letter >= 'A' && letter <= 'Z') || (letter >= 'a' && letter <= 'z')
-                    || (letter >= 'А' && letter <= 'Я') || (letter >= 'а' && letter <= 'я')
-                    || (letter == 'ё' || letter == 'Ё')) {
+            if (Utils.validateRusLetterInput(input)) {
                 break;
             }
             System.out.print(OutputText.INVALID_LETTER_INPUT);
         } while (true);
 
-        return String.valueOf(letter);
+        return input.toLowerCase();
     }
 
     protected void saveUsedLetters(String letter) {
