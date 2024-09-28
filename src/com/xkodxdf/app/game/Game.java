@@ -109,7 +109,7 @@ public class Game {
         return maskedWord;
     }
 
-    protected boolean checkWinLose(boolean isWordGuessed, int attempts) {
+    protected boolean checkWinLoss(boolean isWordGuessed, int attempts) {
         return (isWordGuessed || (attempts >= 6));
     }
 

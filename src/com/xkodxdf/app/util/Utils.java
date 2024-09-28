@@ -1,5 +1,7 @@
 package com.xkodxdf.app.util;
 
+import com.xkodxdf.app.display.OutputText;
+
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -24,5 +26,16 @@ public class Utils {
         }
 
         return input;
+    }
+
+    public static String defineAttemptWord(int remainedAttempts) {
+        if (remainedAttempts > 1 && remainedAttempts < 5) {
+            return OutputText.ATTEMPT_V2;
+        }
+        if (remainedAttempts == 1) {
+            return OutputText.ATTEMPT_V3;
+        }
+
+        return OutputText.ATTEMPT_V1;
     }
 }

@@ -9,14 +9,7 @@ public class Display {
     public void printGameState(int currentAttempt, int guessedInARow, String[] maskedWord, List<String> usedLetters) {
         int maxAttempts = 6;
         int remainedAttempts = maxAttempts - currentAttempt;
-        String attemptWord = OutputText.ATTEMPT_V1;
-
-        if (remainedAttempts > 1 && remainedAttempts < 5) {
-            attemptWord = OutputText.ATTEMPT_V2;
-        }
-        if (remainedAttempts == 1) {
-            attemptWord = OutputText.ATTEMPT_V3;
-        }
+        String attemptWord = Utils.defineAttemptWord(remainedAttempts);
 
         printHangman(currentAttempt);
         System.out.print(OutputText.REMAIN + remainedAttempts + attemptWord);

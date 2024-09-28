@@ -45,7 +45,7 @@ public class Main {
                 game.saveUsedLetters(letter);
                 maskedWord = game.revealGuessedLetter(maskedWord, secretWord, letter);
                 wordGuessed = game.isMaskedWordEqualsSecret(maskedWord, secretWord);
-                if (game.checkWinLose(wordGuessed, game.getAttempts())) {
+                if (game.checkWinLoss(wordGuessed, game.getAttempts())) {
                     game.changeGuessedInARowCounter(wordGuessed);
                     display.printEndGameMessage(game.getAttempts(), game.getGuessedInARow(), secretWord, maskedWord, game.getUsedLetters());
                     break;
