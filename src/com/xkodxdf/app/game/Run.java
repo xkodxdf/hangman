@@ -12,19 +12,20 @@ public class Run {
 
     private static final Scanner scn = new Scanner(System.in);
     private static final Display display = new Display();
-    private static final Dictionary dictionary = new Dictionary();
+    private static final Dictionary dictionary;
     private static final Game game = new Game(scn);
 
-    public static void main(String[] args) {
+    static {
         try {
-            dictionary.setWordList();
+            dictionary = new Dictionary();
         } catch (IOException e) {
-            display.printFileLocationMsg();
-            System.exit(0);
+            throw new RuntimeException(e);
         }
+    }
 
-        List<String> wordList = new ArrayList<>(dictionary.getWordList());
 
+    public static void main(String[] args) {
+        List<String> wordList = dictionary.getWordList();
         while (game.continueGame()) {
             String letter;
             String secretWord = null;
@@ -47,7 +48,8 @@ public class Run {
                 wordGuessed = game.isMaskedWordEqualsSecret(maskedWord, secretWord);
                 if (game.checkWinLoss(wordGuessed, game.getAttempts())) {
                     game.changeGuessedInARowCounter(wordGuessed);
-                    display.printEndGameMsg(game.getAttempts(), game.getGuessedInARow(), secretWord, maskedWord, game.getUsedLetters());
+                    display.printEndGameMsg(game.getAttempts(), game.getGuessedInARow(), secretWord, maskedWord,
+                            game.getUsedLetters(), dictionary.getWordDefinition(secretWord));
                     break;
                 }
             }

@@ -1,30 +1,42 @@
 package com.xkodxdf.app.dictionary;
 
+import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Stream;
+import java.util.*;
 
 public class Dictionary {
 
-    private final List<String> wordList = new ArrayList<>();
+    private final Map<String, String> dictionary;
 
 
-    public List<String> getWordList() {
-        return wordList;
+    public Dictionary() throws IOException {
+        dictionary = new HashMap<>();
+        setDictionary();
     }
 
 
-    public void setWordList() throws IOException {
-        final String FILE_PATH = "./src/resources/data.txt";
-        Stream<String> fileStream = Files.lines(Paths.get(FILE_PATH));
-        fileStream.forEach(i -> {
-            if (!i.isEmpty() && !i.trim().contains(" ")) {
-                wordList.add(i.trim());
+    private void setDictionary() throws IOException {
+        final String FILE_PATH = "./src/resources/rusWords.txt";
+        final File file = new File(FILE_PATH);
+        Scanner scn = new Scanner(file);
+        String line;
+        String[] splittedLine;
+        while (scn.hasNext()) {
+            line = scn.nextLine().trim().toLowerCase();
+            if (line.contains(":")) {
+                splittedLine = line.split(":");
+                dictionary.put(splittedLine[0], splittedLine[1]);
             }
-        });
-        fileStream.close();
+        }
+        scn.close();
+    }
+
+
+    public List<String> getWordList() {
+        return new ArrayList<>(dictionary.keySet());
+    }
+
+    public String getWordDefinition(String word) {
+        return dictionary.get(word);
     }
 }

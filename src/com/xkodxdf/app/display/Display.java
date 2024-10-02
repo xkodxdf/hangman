@@ -31,11 +31,12 @@ public class Display {
         System.out.println(OutputText.START_GAME_MSG);
     }
 
-    public void printEndGameMsg(int attempts, int guessedInARow, String secretWord, String[] maskedWord, List<String> usedLetters) {
+    public void printEndGameMsg(int attempts, int guessedInARow, String secretWord, String[] maskedWord,
+                                List<String> usedLetters, String wordDefinition) {
         printGameState(attempts, guessedInARow, maskedWord, usedLetters);
         String word = Utils.arrToString(maskedWord);
         if (word.equals(secretWord)) {
-            System.out.println(OutputText.END_GAME_WIN_MSG + word.toUpperCase());
+            System.out.println(OutputText.END_GAME_WIN_MSG + word.toUpperCase() + wordDefinition);
             System.out.println(OutputText.SEPARATOR);
         } else {
             System.out.println(OutputText.END_GAME_LOSS_MSG + secretWord.toUpperCase());

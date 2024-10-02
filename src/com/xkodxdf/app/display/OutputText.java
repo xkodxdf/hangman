@@ -6,7 +6,7 @@ public abstract class OutputText {
             + "В словах длиной больше 7 букв - одна из букв открыта с самого начала.\n"
             + "Если вы угадали или случайно ввели букву, которую уже вводили ранее - попытка не тратится.\n";
 
-    public static final String END_GAME_WIN_MSG = "\nИгра окончена. Вы победили, угадав слово - ";
+    public static final String END_GAME_WIN_MSG = "\nИгра окончена. Вы победили, угадав слово:\n";
 
     public static final String END_GAME_LOSS_MSG = "\nИгра окончена. Вы проиграли!\nБыло загадано слово: ";
 

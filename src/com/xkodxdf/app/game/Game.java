@@ -3,7 +3,10 @@ package com.xkodxdf.app.game;
 import com.xkodxdf.app.display.OutputText;
 import com.xkodxdf.app.util.Utils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
