@@ -1,42 +1,102 @@
-Author:a person who writes books or other written works.
-Market:a regular gathering of people for the purchase and sale of provisions.
-Engine:a machine designed to convert energy into useful mechanical motion.
-Season:one of the four periods of the year (spring, summer, autumn, winter).
-Journey:the act of traveling from one place to another.
-Hospital:an institution providing medical and surgical treatment and care to sick or injured people.
-Teacher:a person who teaches, especially in a school.
-Conflict:a serious disagreement or argument, typically a protracted one.
-Research:the systematic investigation into and study of materials and sources to establish facts.
-Friend:a person whom one knows and has a bond of mutual affection.
-Nature:the innate or essential qualities of a person or thing; the physical world collectively.
-Mission:an important assignment carried out for political, religious, or commercial purposes.
-Success:the accomplishment of an aim or purpose.
-Community:a group of people living in the same place or having a common characteristic.
-Computer:an electronic device for storing and processing data.
-Language:a system of communication used by a particular community or country.
-Festival:a day or period of celebration, typically for religious reasons.
-Solution:a means of solving a problem or dealing with a difficult situation.
-University:an institution of higher education and research.
-Identity:the fact of being who or what a person or thing is.
-Atmosphere:the envelope of gases surrounding the earth or another planet.
-Climate:the weather conditions prevailing in an area over a long period.
-Society:a community of people living together and sharing customs.
-Experience:practical contact with and observation of facts or events.
-Quality:the standard of something as measured against other things of a similar kind.
-Journey:the act of traveling from one place to another.
-Strategy:a plan of action designed to achieve a particular goal.
-Horizon:the line where the earth's surface and the sky appear to meet.
-Influence:the capacity to have an effect on the character, development, or behavior of someone or something.
-Privacy:the state of being free from public attention or disturbance.
-Performance:the act of performing a task or function.
-Transcript:a written or printed version of material presented in a different medium.
-Convention:a way in which something is usually done, especially within a particular area or activity.
-Tension:the state of being stretched tight; mental or emotional strain.
-Isolation:the state of being separated from others; solitude.
-Enhancement:an improvement or augmentation of quality, value, or extent.
-Perspective:a particular attitude toward or way of regarding something.
-Tradition:the transmission of customs or beliefs from generation to generation.
-Disaster:a sudden event causing great damage or loss of life.
-Opportunity:a set of circumstances that makes it possible to do something.
-Resource:a source of supply, support, or aid.
-Sustainability:the ability to be maintained at a certain rate or level; avoiding the depletion of natural resources.
+Music: искусство создания последовательностей звуков.
+Journey: акт путешествия из одного места в другое.
+Challenge: вызов на состязание или конкуренцию.
+Adventure: захватывающее, рискованное событие или опыт.
+Market: место, где происходит купля и продажа товаров.
+Canvas: холст или ткань, используемая для рисования.
+Museum: учреждение для сохранения и демонстрации объектов искусства и культуры.
+Evidence: информация или факты, используемые для поддержки утверждения.
+Memory: способность или способ помнить информацию или события.
+Journey: процесс перемещения из одного места в другое.
+Workshop: место, где проводятся обучение или практические занятия.
+Crowd: большое количество людей, собравшихся вместе.
+Friendship: отношения взаимной симпатии между людьми.
+Galaxy: система звезд, газа и пыли, удерживаемая вместе гравитацией.
+Outcome: результат или следствие какого-либо действия.
+Courage: способность действовать даже при страхе или опасности.
+Victory: успех в соревновании или конфликте.
+Resource: источник материалов или средств, доступных для использования.
+Transition: процесс или период изменения от одного состояния к другому.
+Opinion: мнение или точка зрения по какому-либо вопросу.
+Discovery: процесс нахождения или установления чего-то нового.
+Economy: система производства, распределения и потребления товаров и услуг.
+Exploration: процесс изучения или исследования новых мест.
+Schedule: план, в котором указаны время и задачи.
+Development: процесс роста или улучшения чего-либо.
+Inspiration: процесс получения идеи или мотивации.
+Volunteer: человек, который предлагает свои услуги без оплаты.
+Achievement: успешное выполнение задачи или цели.
+Support: помощь или содействие в трудной ситуации.
+Training: процесс обучения и подготовки к выполнению задач.
+Feedback: информация о том, как что-то было воспринято или выполнено.
+Connection: отношение или связь между людьми или вещами.
+Innovation: внедрение нового метода или идеи.
+Reflection: глубокое размышление о чем-либо.
+Adventure: увлекательное или рискованное событие.
+Strategy: план действий для достижения целей.
+Motivation: причины, по которым люди действуют.
+Participation: участие в деятельности или мероприятии.
+Candidate: человек, который претендует на должность или награду.
+Employment: состояние занятости на работе.
+Protection: действия, направленные на охрану чего-либо.
+Success: достижение желаемого результата или цели.
+Discovery: нахождение чего-то нового или ранее неизвестного.
+Journey: акт путешествия из одного места в другое.
+Festival: праздник или событие, обычно с культурным или религиозным значением.
+Curriculum: образовательная программа или курс.
+Gratitude: чувство благодарности.
+Challenge: задача, требующая усилий для достижения цели.
+Environment: окружающая среда.
+Relationship: связь между людьми или группами.
+Performance: исполнение или выполнение задачи.
+Inspiration: процесс получения идей или мотивации.
+Integrity: честность и моральные принципы.
+Community: группа людей, живущих в одном месте или имеющих что-то общее.
+Technology: приложение научных знаний для практических целей.
+Motivation: побуждение к действию.
+Satisfaction: чувство удовлетворения.
+Leadership: способность вести и управлять.
+Connection: связь между людьми или вещами.
+Contribution: вклад в общее дело.
+Improvement: процесс улучшения.
+Employment: состояние занятости на работе.
+Perspective: точка зрения или отношение к чему-либо.
+Ambition: стремление к успеху.
+Tradition: обычаи, передаваемые из поколения в поколение.
+Security: защита от опасностей.
+Outcome: результат или следствие действий.
+Evidence: информация, подтверждающая или опровергающая утверждение.
+Reflection: размышление или анализ.
+Resolution: решение проблемы.
+Intention: намерение сделать что-то.
+Discovery: акт нахождения чего-то нового.
+Authority: право или возможность давать указания и принимать решения.
+Development: процесс улучшения или роста.
+Concept: идея или общее представление о чем-либо.
+Emotion: чувство или настроение человека.
+Experiment: научное исследование, проводимое для проверки гипотезы.
+Foundation: основа или база, на которой строится что-либо.
+Guidance: совет или руководство, направляющее к действию.
+Innovation: внедрение новых идей или технологий.
+Satisfaction: чувство удовлетворения от достигнутого.
+Tradition: обычаи, передаваемые из поколения в поколение.
+Integration: процесс объединения различных частей в целое.
+Discovery: нахождение чего-то нового или неизвестного.
+Scenario: возможный или воображаемый пример событий.
+Tolerance: терпимость к другим мнениям или поведению.
+Investigation: процесс тщательного изучения чего-либо.
+Presentation: акт представления информации.
+Contribution: вклад или помощь в общем деле.
+Generation: группа людей, родившихся в определенный период.
+Assignment: задача или работа, которую нужно выполнить.
+Selection: процесс выбора из группы.
+Influence: способность оказывать воздействие на других.
+Identity: индивидуальные характеристики или качество, определяющее личность.
+Reflection: размышление или глубокое обдумывание.
+Negotiation: процесс обсуждения, цель которого — добиться соглашения.
+Acquisition: процесс получения или приобретения.
+Strategy: план, установленный для достижения определенных целей.
+Participation: активное участие в каком-либо мероприятии.
+Validation: процесс подтверждения или подтверждение действительности.
+Simulation: имитация процесса или системы для анализа.
+Performance: выполнение или достижение результата.

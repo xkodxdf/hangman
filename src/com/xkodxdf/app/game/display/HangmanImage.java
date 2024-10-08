@@ -1,4 +1,4 @@
-package com.xkodxdf.app.display;
+package com.xkodxdf.app.game.display;
 
 public enum HangmanImage {
     IMAGE_1("    +---+\n" +
@@ -62,6 +62,7 @@ public enum HangmanImage {
 
     @Override
     public String toString() {
+
         return HANGMAN_IMAGE;
     }
 }

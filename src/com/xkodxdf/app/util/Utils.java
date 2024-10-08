@@ -1,17 +1,16 @@
 package com.xkodxdf.app.util;
 
-import com.xkodxdf.app.display.OutputText;
-
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Utils {
 
-    public static String arrToString(String[] arrWord) {
+    public static Scanner scn = new Scanner(System.in);
+
+
+    public static String arrToString(char[] arrWord) {
         return Arrays.toString(arrWord)
                 .replace("[", "")
                 .replace("]", "")
@@ -20,7 +19,7 @@ public class Utils {
                 .trim();
     }
 
-    public static String getInput(Scanner scn) {
+    public static String getInput() {
         String input = "";
         try {
             input = scn.nextLine();
@@ -31,39 +30,36 @@ public class Utils {
         return input;
     }
 
-    public static String defineAttemptWord(int remainedAttempts) {
-        if (remainedAttempts > 1 && remainedAttempts < 5) {
-            return OutputText.ATTEMPT_V2;
-        }
-        if (remainedAttempts == 1) {
-            return OutputText.ATTEMPT_V3;
-        }
+    public static boolean isCyrillic(String s) {
 
-        return OutputText.ATTEMPT_V1;
+        return s.matches(".*\\p{IsCyrillic}.*");
+    }
+
+    public static boolean isLatin(String s) {
+
+        return s.matches(".*\\p{IsLatin}.*");
     }
 
     public static boolean validateRusLetterInput(String letter) {
         if (letter.length() != 1) {
             return false;
         }
-        Pattern alphabet = Pattern.compile("[а-яёА-ЯЁ]");
-        Matcher matcher = alphabet.matcher(letter);
 
-        return matcher.find();
+        return isCyrillic(letter);
     }
 
     public static boolean validateEngLetterInput(String letter) {
         if (letter.length() != 1) {
             return false;
         }
-        Pattern alphabet = Pattern.compile("[a-zA-Z]");
-        Matcher matcher = alphabet.matcher(letter);
 
-        return matcher.find();
+        return isLatin(letter);
     }
 
-    public static void openRandomLetter(String word, String[] arr) {
-        int randomCell = ThreadLocalRandom.current().nextInt(arr.length);
-        arr[randomCell] = String.valueOf(word.charAt(randomCell));
+    public static String openRandomLetter(String word, char[] maskedArr) {
+        int randomCell = ThreadLocalRandom.current().nextInt(maskedArr.length);
+        maskedArr[randomCell] = word.charAt(randomCell);
+
+        return Utils.arrToString(maskedArr);
     }
 }
