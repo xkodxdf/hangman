@@ -20,7 +20,6 @@ public class Game {
         while (state.isGameContinue()) {
             while (state.isRoundContinue()) {
                 display.printGameScreen();
-                System.out.println(state.getSecretWord());
                 logic.getLetterFromUser();
                 logic.checkRoundEnd();
             }
