@@ -73,6 +73,7 @@ public class Word {
     private void resetWordDefinitionLists(Map<String, String> wordBook) {
         words = new ArrayList<>(wordBook.keySet());
         definitions = new ArrayList<>(wordBook.values());
+        randomBound = words.size();
     }
 
     protected void switchLanguage() {
