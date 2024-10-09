@@ -5,6 +5,7 @@ import com.xkodxdf.app.game.dictionary.Dictionary;
 import com.xkodxdf.app.util.Utils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
@@ -16,6 +17,7 @@ public class Word {
     private String wordDefinition;
     private List<String> words;
     private List<String> definitions;
+    private int randomBound;
     private final Dictionary dictionary;
     private final String maskSymbol;
     private final int lengthForHint;
@@ -27,6 +29,7 @@ public class Word {
         dictionary = new Dictionary(initLanguage);
         words = new ArrayList<>(dictionary.getWordBook().keySet());
         definitions = new ArrayList<>(dictionary.getWordBook().values());
+        randomBound = words.size();
     }
 
 
@@ -44,14 +47,16 @@ public class Word {
 
 
     public void setup() {
-        int index = ThreadLocalRandom.current().nextInt(words.size());
+        if (randomBound == 0) {
+            randomBound = words.size();
+        }
+        int index = ThreadLocalRandom.current().nextInt(randomBound);
         secretWord = words.get(index);
         setMasked();
         setDefinition();
-        words.remove(index);
-        if (words.isEmpty()) {
-            resetWordDefinitionLists(dictionary.getWordBook());
-        }
+        Collections.swap(words, index, randomBound - 1);
+        Collections.swap(definitions, index, randomBound - 1);
+        randomBound--;
     }
 
     private void setMasked() {
@@ -63,7 +68,6 @@ public class Word {
 
     private void setDefinition() {
         wordDefinition = definitions.get(words.indexOf(secretWord));
-        definitions.remove(wordDefinition);
     }
 
     private void resetWordDefinitionLists(Map<String, String> wordBook) {
