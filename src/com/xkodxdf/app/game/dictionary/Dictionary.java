@@ -47,7 +47,7 @@ public class Dictionary {
         String[] splitLine;
         while (scn.hasNext()) {
             line = scn.nextLine().toLowerCase();
-            splitLine = line.split(":");
+            splitLine = line.split(":", 2);
             if (splitLine.length == 2) {
                 wordBook.put(splitLine[0].trim(), splitLine[1].trim());
             }
