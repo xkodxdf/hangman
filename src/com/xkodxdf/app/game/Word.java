@@ -45,10 +45,10 @@ public class Word {
 
     public void setup() {
         int index = ThreadLocalRandom.current().nextInt(words.size());
-        secretWord = words.toArray(new String[0])[index];
+        secretWord = words.get(index);
         setMasked();
         setDefinition();
-        words.remove(secretWord);
+        words.remove(index);
         if (words.isEmpty()) {
             resetWordDefinitionLists(dictionary.getWordBook());
         }
