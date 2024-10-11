@@ -32,8 +32,7 @@ public class Game {
         }
     }
 
-    public void start() {
-        Display display = new Display();
+    public void start(Display display) {
         while (state.isGameContinue()) {
             while (state.isRoundContinue()) {
                 display.printGameScreen(state);
