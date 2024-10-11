@@ -9,24 +9,23 @@ public class Game {
 
     private final State state;
     private final Logic logic;
-    private final Display display;
 
 
     public Game(String initLanguage) {
         state = new State();
-        display = new Display(state);
         logic = new Logic(state, new Word(initLanguage));
     }
 
 
     public void start() {
+        Display display = new Display();
         while (state.isGameContinue()) {
             while (state.isRoundContinue()) {
-                display.printGameScreen();
+                display.printGameScreen(state);
                 logic.getLetterFromUser();
                 logic.checkRoundEnd();
             }
-            display.printEndGameMsg();
+            display.printEndGameMsg(state);
             logic.askForContinue();
         }
     }
