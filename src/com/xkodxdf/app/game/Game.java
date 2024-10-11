@@ -18,26 +18,22 @@ public class Game {
 
 
     public static Game init() {
-        String choice;
+        String option;
         final String startRuGame = "1";
         final String startEngGame = "2";
         final String exit = "3";
 
         System.out.println(OutputText.START_GAME_MSG);
-        do {
-            System.out.println(OutputText.GAME_INIT_CHOICE);
-            choice = Utils.getInput();
-            switch (choice) {
-                case startRuGame:
-                    return new Game(DictionaryFile.RUSSIAN_WORDS);
-                case startEngGame:
-                    return new Game(DictionaryFile.ENGLISH_WORDS);
-                case exit:
-                    System.exit(0);
-            }
-
-            System.out.println(OutputText.INVALID_INPUT);
-        } while (true);
+        option = Utils.getOption(OutputText.GAME_INIT_CHOICE, OutputText.INVALID_INPUT,
+                startRuGame, startEngGame, exit);
+        switch (option) {
+            case startEngGame:
+                return new Game(DictionaryFile.ENGLISH_WORDS);
+            case exit:
+                System.exit(0);
+            default:
+                return new Game(DictionaryFile.RUSSIAN_WORDS);
+        }
     }
 
     public void start() {

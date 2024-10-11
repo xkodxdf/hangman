@@ -96,26 +96,23 @@ public class Logic {
 
     protected void changeIsGameContinue() {
         System.out.println(OutputText.CONTINUE_GAME_CHOICE);
-        String answer;
-        String newGame = "1";
-        String changeLang = "2";
-        String endGame = "3";
+        String option;
+        final String NEW_GAME = "1";
+        final String CHANGE_LANG = "2";
+        final String END_GAME = "3";
 
-        do {
-            answer = Utils.getInput();
-            if (answer.equals(newGame) || answer.equals(changeLang)) {
-                state.setIsGameContinue(true);
-                if (answer.equals(changeLang)) {
-                    word.switchLanguage();
-                }
-                stateSetup();
+        option = Utils.getOption("", OutputText.INVALID_NUM_INPUT, NEW_GAME, CHANGE_LANG, END_GAME);
+        switch (option) {
+            case NEW_GAME:
                 break;
-            }
-            if (answer.equals(endGame)) {
+            case CHANGE_LANG:
+                word.switchLanguage();
+                break;
+            case END_GAME:
                 state.setIsGameContinue(false);
-                break;
-            }
-            System.out.println(OutputText.INVALID_NUM_INPUT);
-        } while (true);
+                return;
+        }
+        state.setIsGameContinue(true);
+        stateSetup();
     }
 }
