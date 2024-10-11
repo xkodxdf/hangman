@@ -1,7 +1,7 @@
 package com.xkodxdf.app.game;
 
-import com.xkodxdf.app.Config;
 import com.xkodxdf.app.game.dictionary.Dictionary;
+import com.xkodxdf.app.game.dictionary.DictionaryFile;
 import com.xkodxdf.app.util.Utils;
 
 import java.util.ArrayList;
@@ -23,10 +23,10 @@ public class Word {
     private final int lengthForHint;
 
 
-    protected Word(String initLanguage) {
+    protected Word(DictionaryFile startDictionary) {
         maskSymbol = "*";
         lengthForHint = 8;
-        dictionary = new Dictionary(initLanguage);
+        dictionary = new Dictionary(startDictionary);
         words = new ArrayList<>(dictionary.getWordBook().keySet());
         definitions = new ArrayList<>(dictionary.getWordBook().values());
         randomBound = words.size();
@@ -78,9 +78,9 @@ public class Word {
 
     protected void switchLanguage() {
         if (Utils.isCyrillic(words.get(0))) {
-            resetWordDefinitionLists(dictionary.setupWordBook(Config.ENG_FILE_PATH).getWordBook());
+            resetWordDefinitionLists(dictionary.setupWordBook(DictionaryFile.ENGLISH_WORDS.getPath()).getWordBook());
         } else {
-            resetWordDefinitionLists(dictionary.setupWordBook(Config.RUS_FILE_PATH).getWordBook());
+            resetWordDefinitionLists(dictionary.setupWordBook(DictionaryFile.RUSSIAN_WORDS.getPath()).getWordBook());
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.xkodxdf.app.game.dictionary;
 
-import com.xkodxdf.app.Config;
 import com.xkodxdf.app.game.display.OutputText;
 import com.xkodxdf.app.game.exception.DictionaryIsEmptyException;
 import com.xkodxdf.app.util.Utils;
@@ -16,8 +15,8 @@ public class Dictionary {
     private final Map<String, String> wordBook = new HashMap<>();
 
 
-    public Dictionary(String wordsFilePath) {
-        setupWordBook(wordsFilePath);
+    public Dictionary(DictionaryFile startDictionary) {
+        setupWordBook(startDictionary.getPath());
     }
 
 
@@ -26,15 +25,15 @@ public class Dictionary {
     }
 
 
-    public Dictionary setupWordBook(String wordsFilePath) {
-        try (Scanner scn = new Scanner(Path.of(wordsFilePath))) {
+    public Dictionary setupWordBook(String filePath) {
+        try (Scanner scn = new Scanner(Path.of(filePath))) {
             loadWords(scn);
         } catch (IOException e) {
-            System.out.println(OutputText.FILE_LOCATION_PROBLEM + wordsFilePath
-                    + OutputText.OR_INPUT_FILE_PATH + Config.RUS_FILE_PATH);
+            System.out.println(OutputText.FILE_LOCATION_PROBLEM + filePath
+                    + OutputText.OR_INPUT_FILE_PATH + DictionaryFile.RUSSIAN_WORDS.getPath());
             changeFilePathOrExit();
         } catch (DictionaryIsEmptyException e) {
-            System.out.println(wordsFilePath + e.getMessage() + Config.RUS_FILE_PATH);
+            System.out.println(filePath + e.getMessage() + DictionaryFile.RUSSIAN_WORDS.getPath());
             changeFilePathOrExit();
         }
 
