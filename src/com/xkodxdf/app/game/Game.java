@@ -45,11 +45,11 @@ public class Game {
         while (state.isGameContinue()) {
             while (state.isRoundContinue()) {
                 display.printGameScreen(state);
-                logic.getLetterFromUser();
-                logic.checkRoundEnd();
+                logic.inputLetter();
+                logic.changeIsRoundContinue();
             }
             display.printEndGameMsg(state);
-            logic.askForContinue();
+            logic.changeIsGameContinue();
         }
     }
 }

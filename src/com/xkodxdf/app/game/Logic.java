@@ -14,22 +14,22 @@ public class Logic {
     protected Logic(State state, Word word) {
         this.state = state;
         this.word = word;
-        statSetup();
+        stateSetup();
     }
 
-    public void statSetup() {
+    public void stateSetup() {
         word.setup();
-        state.setSecretWord(word.getSecretWord());
-        state.setMaskedWord(word.getMaskedWord());
-        state.setWordDefinition(word.getWordDefinition());
+        state.setSecretWord(word.getSecret());
+        state.setMaskedWord(word.getMasked());
+        state.setWordDefinition(word.getDefinition());
         state.resetAttemptCounters();
         state.setIsGameContinue(true);
         state.clearUsedLetters();
         state.defineIsRusLang();
-        checkRoundEnd();
+        changeIsRoundContinue();
     }
 
-    protected void getLetterFromUser() {
+    protected void inputLetter() {
         String letter;
         do {
             System.out.print(OutputText.INPUT_LETTER);
@@ -68,24 +68,24 @@ public class Logic {
         state.changeAttemptCounters();
     }
 
-    private void checkWin() {
+    private void changeWinState() {
         String secretWord = state.getSecretWord();
         String maskedWord = state.getMaskedWord();
         state.setWordGuessed(Objects.equals(secretWord, maskedWord));
     }
 
-    private void checkLoss() {
+    private void changeLossState() {
         state.setAttemptsOver(state.getCurrentAttempts() >= state.getMaxAttempts());
     }
 
-    protected void checkRoundEnd() {
-        checkWin();
-        checkLoss();
+    protected void changeIsRoundContinue() {
+        changeWinState();
+        changeLossState();
         state.setRoundContinue(!(state.isWordGuessed() || state.isAttemptsOver()));
-        changeGuessedCounter();
+        changeGuessedWordsCounter();
     }
 
-    protected void changeGuessedCounter() {
+    protected void changeGuessedWordsCounter() {
         if (state.isWordGuessed()) {
             state.increaseWordsGuessedCounter();
         }
@@ -94,7 +94,7 @@ public class Logic {
         }
     }
 
-    protected void askForContinue() {
+    protected void changeIsGameContinue() {
         System.out.println(OutputText.CONTINUE_GAME_CHOICE);
         String answer;
         String newGame = "1";
@@ -108,7 +108,7 @@ public class Logic {
                 if (answer.equals(changeLang)) {
                     word.switchLanguage();
                 }
-                statSetup();
+                stateSetup();
                 break;
             }
             if (answer.equals(endGame)) {

@@ -12,15 +12,15 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Word {
 
-    private String secretWord;
-    private String maskedWord;
-    private String wordDefinition;
+    private String secret;
+    private String masked;
+    private String definition;
     private List<String> words;
     private List<String> definitions;
     private int randomBound;
-    private final Dictionary dictionary;
-    private final String maskSymbol;
     private final int lengthForHint;
+    private final String maskSymbol;
+    private final Dictionary dictionary;
 
 
     protected Word(DictionaryFile initDictionary) {
@@ -28,21 +28,21 @@ public class Word {
         lengthForHint = 8;
         dictionary = new Dictionary(initDictionary);
         words = new ArrayList<>(dictionary.getWordBook().keySet());
-        definitions = new ArrayList<>(dictionary.getWordBook().values());
         randomBound = words.size();
+        definitions = new ArrayList<>(dictionary.getWordBook().values());
     }
 
 
-    protected String getSecretWord() {
-        return secretWord;
+    protected String getSecret() {
+        return secret;
     }
 
-    protected String getMaskedWord() {
-        return maskedWord;
+    protected String getMasked() {
+        return masked;
     }
 
-    protected String getWordDefinition() {
-        return wordDefinition;
+    protected String getDefinition() {
+        return definition;
     }
 
 
@@ -51,7 +51,7 @@ public class Word {
             randomBound = words.size();
         }
         int index = ThreadLocalRandom.current().nextInt(randomBound);
-        secretWord = words.get(index);
+        secret = words.get(index);
         setMasked();
         setDefinition();
         Collections.swap(words, index, randomBound - 1);
@@ -60,14 +60,14 @@ public class Word {
     }
 
     private void setMasked() {
-        maskedWord = maskSymbol.repeat(secretWord.length());
-        if (secretWord.length() >= lengthForHint) {
-            maskedWord = Utils.openRandomLetter(secretWord, maskedWord.toCharArray());
+        masked = maskSymbol.repeat(secret.length());
+        if (secret.length() >= lengthForHint) {
+            masked = Utils.openRandomLetter(secret, masked.toCharArray());
         }
     }
 
     private void setDefinition() {
-        wordDefinition = definitions.get(words.indexOf(secretWord));
+        definition = definitions.get(words.indexOf(secret));
     }
 
     private void resetWordDefinitionLists(Map<String, String> wordBook) {
