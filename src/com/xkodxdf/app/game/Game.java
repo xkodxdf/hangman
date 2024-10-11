@@ -1,6 +1,6 @@
 package com.xkodxdf.app.game;
 
-import com.xkodxdf.app.Config;
+import com.xkodxdf.app.game.dictionary.DictionaryFile;
 import com.xkodxdf.app.game.display.Display;
 import com.xkodxdf.app.game.display.OutputText;
 import com.xkodxdf.app.util.Utils;
@@ -11,11 +11,34 @@ public class Game {
     private final Logic logic;
 
 
-    public Game(String initLanguage) {
+    private Game(DictionaryFile initDictionary) {
         state = new State();
-        logic = new Logic(state, new Word(initLanguage));
+        logic = new Logic(state, new Word(initDictionary));
     }
 
+
+    public static Game init() {
+        String choice;
+        final String startRuGame = "1";
+        final String startEngGame = "2";
+        final String exit = "3";
+
+        System.out.println(OutputText.START_GAME_MSG);
+        do {
+            System.out.println(OutputText.GAME_INIT_CHOICE);
+            choice = Utils.getInput();
+            switch (choice) {
+                case startRuGame:
+                    return new Game(DictionaryFile.RUSSIAN_WORDS);
+                case startEngGame:
+                    return new Game(DictionaryFile.ENGLISH_WORDS);
+                case exit:
+                    System.exit(0);
+            }
+
+            System.out.println(OutputText.INVALID_INPUT);
+        } while (true);
+    }
 
     public void start() {
         Display display = new Display();
@@ -28,32 +51,5 @@ public class Game {
             display.printEndGameMsg(state);
             logic.askForContinue();
         }
-    }
-
-    public static String getStartLanguage() {
-        String choice;
-        String startLanguage = Config.RUS_FILE_PATH;
-        String startRuGame = "1";
-        String startEngGame = "2";
-        String exit = "3";
-
-        System.out.println(OutputText.START_GAME_MSG);
-        do {
-            System.out.println(OutputText.GAME_INIT_CHOICE);
-            choice = Utils.getInput();
-            if (exit.equals(choice)) {
-                System.exit(0);
-            }
-            if (startEngGame.equals(choice)) {
-                startLanguage = Config.ENG_FILE_PATH;
-                break;
-            }
-            if (startRuGame.equals(choice)) {
-                break;
-            }
-            System.out.println(OutputText.INVALID_INPUT);
-        } while (true);
-
-        return startLanguage;
     }
 }
