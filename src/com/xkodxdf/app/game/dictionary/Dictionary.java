@@ -1,5 +1,6 @@
 package com.xkodxdf.app.game.dictionary;
 
+import com.xkodxdf.app.game.Option;
 import com.xkodxdf.app.game.display.OutputText;
 import com.xkodxdf.app.game.exception.DictionaryIsEmptyException;
 import com.xkodxdf.app.util.Utils;
@@ -57,20 +58,16 @@ public class Dictionary {
     }
 
     private void changeFilePathOrExit() {
-        String answer;
-        String inputFilePath = "1";
-        String exit = "2";
-        while (true) {
-            System.out.println(OutputText.INPUT_FILE_PATH_OR_EXIT);
-            answer = Utils.getInput();
-            if (inputFilePath.equals(answer)) {
-                System.out.print(OutputText.PATH_TO_FILE);
+        Option option;
+        option = Utils.getOption(OutputText.INPUT_FILE_PATH_OR_EXIT, "",
+                Option.INPUT_FILE_PATH, Option.EXIT);
+        switch (option) {
+            case INPUT_FILE_PATH:
+                System.out.println(OutputText.PATH_TO_FILE);
                 setupWordBook(Utils.getInput());
                 break;
-            }
-            if (exit.equals(answer)) {
+            case EXIT:
                 System.exit(0);
-            }
         }
     }
 }
