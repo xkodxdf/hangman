@@ -15,8 +15,8 @@ public class Dictionary {
     private final Map<String, String> wordBook = new HashMap<>();
 
 
-    public Dictionary(DictionaryFile startDictionary) {
-        setupWordBook(startDictionary.getPath());
+    public Dictionary(DictionaryFile initDictionary) {
+        setupWordBook(initDictionary.getPath());
     }
 
 
