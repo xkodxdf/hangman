@@ -1,8 +1,6 @@
 package com.xkodxdf.app.util;
 
-import java.util.Arrays;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Utils {
@@ -28,6 +26,23 @@ public class Utils {
         }
 
         return input;
+    }
+
+    public static String getOption(String askMsg, String invalidInputMsg, String... options) {
+        String option;
+        List<String> optionList = Arrays.asList(options);
+        do {
+            if (!(askMsg.isEmpty() || askMsg.isBlank())) {
+                System.out.println(askMsg);
+            }
+            option = getInput();
+            if (optionList.contains(option)) {
+                return option;
+            }
+            if (!(invalidInputMsg.isEmpty() || invalidInputMsg.isBlank())) {
+                System.out.println(invalidInputMsg);
+            }
+        } while (true);
     }
 
     public static boolean isCyrillic(String s) {
