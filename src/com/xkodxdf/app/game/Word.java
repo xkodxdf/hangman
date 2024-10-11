@@ -23,10 +23,10 @@ public class Word {
     private final int lengthForHint;
 
 
-    protected Word(DictionaryFile startDictionary) {
+    protected Word(DictionaryFile initDictionary) {
         maskSymbol = "*";
         lengthForHint = 8;
-        dictionary = new Dictionary(startDictionary);
+        dictionary = new Dictionary(initDictionary);
         words = new ArrayList<>(dictionary.getWordBook().keySet());
         definitions = new ArrayList<>(dictionary.getWordBook().values());
         randomBound = words.size();
