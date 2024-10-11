@@ -58,8 +58,7 @@ public class Dictionary {
     }
 
     private void changeFilePathOrExit() {
-        Option option;
-        option = Utils.getOption(OutputText.INPUT_FILE_PATH_OR_EXIT, "",
+        Option option = Utils.getOption(OutputText.INPUT_FILE_PATH_OR_EXIT, "",
                 Option.INPUT_FILE_PATH, Option.EXIT);
         switch (option) {
             case INPUT_FILE_PATH:
