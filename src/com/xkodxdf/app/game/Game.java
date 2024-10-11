@@ -18,18 +18,14 @@ public class Game {
 
 
     public static Game init() {
-        String option;
-        final String startRuGame = "1";
-        final String startEngGame = "2";
-        final String exit = "3";
-
         System.out.println(OutputText.START_GAME_MSG);
-        option = Utils.getOption(OutputText.GAME_INIT_CHOICE, OutputText.INVALID_INPUT,
-                startRuGame, startEngGame, exit);
+        Option option = Utils.getOption(OutputText.GAME_INIT_CHOICE, OutputText.INVALID_INPUT,
+                Option.NEW_RU_GAME, Option.NEW_ENG_GAME, Option.EXIT);
+
         switch (option) {
-            case startEngGame:
+            case NEW_ENG_GAME:
                 return new Game(DictionaryFile.ENGLISH_WORDS);
-            case exit:
+            case EXIT:
                 System.exit(0);
             default:
                 return new Game(DictionaryFile.RUSSIAN_WORDS);
