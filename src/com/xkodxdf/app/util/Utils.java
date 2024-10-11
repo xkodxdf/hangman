@@ -1,5 +1,7 @@
 package com.xkodxdf.app.util;
 
+import com.xkodxdf.app.game.Option;
+
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -28,16 +30,17 @@ public class Utils {
         return input;
     }
 
-    public static String getOption(String askMsg, String invalidInputMsg, String... options) {
-        String option;
-        List<String> optionList = Arrays.asList(options);
+    public static Option getOption(String askMsg, String invalidInputMsg, Option... options) {
+        String input;
         do {
             if (!(askMsg.isEmpty() || askMsg.isBlank())) {
                 System.out.println(askMsg);
             }
-            option = getInput();
-            if (optionList.contains(option)) {
-                return option;
+            input = getInput();
+            for (Option o : options) {
+                if (Objects.equals(input, o.getValue())) {
+                    return o;
+                }
             }
             if (!(invalidInputMsg.isEmpty() || invalidInputMsg.isBlank())) {
                 System.out.println(invalidInputMsg);
