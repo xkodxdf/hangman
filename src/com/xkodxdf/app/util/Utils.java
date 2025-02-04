@@ -33,7 +33,7 @@ public class Utils {
     public static Option getOption(String askMsg, String invalidInputMsg, Option... options) {
         String input;
         do {
-            if (!(askMsg.isEmpty() || askMsg.isBlank())) {
+            if (!(askMsg.isBlank())) {
                 System.out.println(askMsg);
             }
             input = getInput();
@@ -42,7 +42,7 @@ public class Utils {
                     return o;
                 }
             }
-            if (!(invalidInputMsg.isEmpty() || invalidInputMsg.isBlank())) {
+            if (!(invalidInputMsg.isBlank())) {
                 System.out.println(invalidInputMsg);
             }
         } while (true);
