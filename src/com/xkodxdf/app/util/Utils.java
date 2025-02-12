@@ -80,4 +80,18 @@ public class Utils {
 
         return Utils.arrToString(maskedArr);
     }
+
+    public static void clearCLI() {
+        try {
+            String os = System.getProperty("os.name").toLowerCase();
+            ProcessBuilder processBuilder;
+            if (os.contains("win")) {
+                processBuilder = new ProcessBuilder("cmd", "/c", "cls");
+            } else {
+                processBuilder = new ProcessBuilder("clear");
+            }
+            processBuilder.inheritIO().start().waitFor();
+        } catch (Exception ignored) {
+        }
+    }
 }
